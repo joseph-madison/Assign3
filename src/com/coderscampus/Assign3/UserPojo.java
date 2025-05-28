@@ -1,21 +1,60 @@
+package com.coderscampus.Assign3;
+
 public class UserPojo {
     private final String username;
     private final String password;
-    private final String name;
+    private final String fileName;
 
-    public UserPojo(String username,String password, String name){
+    public UserPojo(String username, String password, String filename) {
         this.username = username;
         this.password = password;
-        this.name = name;
+        this.fileName = filename;
     }
 
-    public String getUsername(){
+    public String getUsername() {
         return username;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
-    public String getName(){
-        return name;
+
+    public String getFilename() {
+        return fileName;
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

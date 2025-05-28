@@ -1,32 +1,40 @@
+package com.coderscampus.Assign3;
+
+
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 
 public class UserService {
-    private UserPojo[][] UserPojo;
 
-    public UserPojo[] readUserFromFile(String fileName) throws IOException{
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
+    public static int readUsersFromFile(String filename) throws IOException, IOException {
+
+        BufferedReader reader = new BufferedReader(new FileReader("data.txt"));
         int userCount = 0;
-        while (bufferedReader.readLine()!= null){
+        while (reader.readLine() != null) {
             userCount++;
         }
-        bufferedReader.close();
+        reader.close();
 
-        UserPojo[] userPojos = UserPojo[userCount];
-        bufferedReader = new BufferedReader(new FileReader("src/data.txt"));
+        UserPojo[] userPojos = new UserPojo[userCount];
 
+        BufferedReader readerAgain = new BufferedReader(new FileReader("data.txt"));
         String line;
         int index = 0;
-        while ((line = bufferedReader.readLine())!=null){
+        while ((line = readerAgain.readLine()) != null) {
             String[] parts = line.split(",");
-            if (parts.length==4) {
-                userPojos[index++] = new UserPojo(parts[0], parts[1], parts[2]);
+            if (parts.length == 3) {
+                String username = parts[0].trim();
+                String password = parts[1].trim();
+                String name = parts[2].trim();
+                userPojos[index++] = new UserPojo(username, password, name);
             }
         }
-        bufferedReader.close();
-        return userPojos;
+        readerAgain.close();
 
+        return userCount;
     }
-
 }
+
+
