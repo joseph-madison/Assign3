@@ -1,5 +1,6 @@
 package com.coderscampus.Assign3;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 import static com.coderscampus.Assign3.UserService.*;
@@ -7,7 +8,7 @@ import static com.coderscampus.Assign3.UserService.*;
 public class UserApplication {
 
 
-    public static void main(String[] ignoredArgs) {
+    public static void main(String[] Args) {
     try {
         User[] users = loadUsers("data.txt");
         Scanner scanner = new Scanner(System.in);
@@ -24,9 +25,8 @@ public class UserApplication {
             String password = scanner.nextLine();
 
             boolean authenticated = false;
-            assert users != null;
-            for (User user : users)
-                if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equalsIgnoreCase(password)) {
+            for (User user : Objects.requireNonNull(users))
+                if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
                     System.out.println("Welcome " + user.getFilename());
                     authenticated = true;
                     break;

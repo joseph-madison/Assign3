@@ -3,12 +3,12 @@ package com.coderscampus.Assign3;
 public class User {
     private final String username;
     private final String password;
-    private final String fileName;
+    private final String Name;
 
     public User(String username, String password, String filename) {
         this.username = username;
         this.password = password;
-        this.fileName = filename;
+        this.Name = filename;
     }
 
     public String getUsername() {
@@ -20,7 +20,7 @@ public class User {
     }
 
     public String getFilename() {
-        return fileName;
+        return Name;
 
     }
 }
