@@ -27,10 +27,12 @@ public class UserApplication {
             boolean authenticated = false;
             for (User user : Objects.requireNonNull(users))
                 if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
-                    System.out.println("Welcome " + user.getFilename());
+                    System.out.println("Welcome " + user.getName());
                     authenticated = true;
                     break;
+
                 }
+            scanner.close();
 
             if (!authenticated) {
                 attempts++;

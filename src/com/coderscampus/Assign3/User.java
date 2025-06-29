@@ -19,10 +19,7 @@ public class User {
         return password;
     }
 
-    public String getFilename() {
-        return Name;
-
-    }
+    public String getName(){ return Name;}
 }
 
 
