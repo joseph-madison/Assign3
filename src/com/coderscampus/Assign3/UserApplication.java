@@ -28,11 +28,9 @@ public class UserApplication {
             for (User user : Objects.requireNonNull(users))
                 if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
                     System.out.println("Welcome " + user.getName());
-                    authenticated = true;
-                    break;
-
+                    return;
                 }
-            scanner.close();
+
 
             if (!authenticated) {
                 attempts++;
@@ -43,8 +41,7 @@ public class UserApplication {
 
             }
         }
-
-            scanner.close();
+        scanner.close();
 
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
